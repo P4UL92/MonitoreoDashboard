@@ -8,6 +8,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import ListedBuses from "./Components/ListedBuses";
+import Info from "./Components/Info";
+import Dispatch from "./Components/Dispatch";
 
 function Copyright() {
   return (
@@ -62,14 +64,16 @@ export default function Monitor() {
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Paper className={classes.paper}></Paper>
+              <Paper className={classes.paper}>
+                <Dispatch />
+              </Paper>
             </Grid>
           </Grid>
           <Grid container spacing={3} justify="center">
             {/* Bus info */}
             <Grid item xs={10}>
               <Paper className={classes.paper}>
-                <ListedBuses />
+                <Info />
               </Paper>
             </Grid>
           </Grid>
