@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ListedBuses() {
+export default function Header() {
   const classes = useStyles();
   return (
     <React.Fragment>

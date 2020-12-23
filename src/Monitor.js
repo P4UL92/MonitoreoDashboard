@@ -8,21 +8,11 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import ListedBuses from "./Components/ListedBuses";
-import Info from "./Components/Info";
+import Filter from "./Components/Filter";
+import BusInfo from "./Components/BusInfo";
+import StaffInfo from "./Components/StaffInfo";
 import Dispatch from "./Components/Dispatch";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://trys.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import Header from "./Components/Header";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,7 +50,10 @@ export default function Monitor() {
             {/* Bus monitor */}
             <Grid item xs={8}>
               <Paper className={classes.paper}>
+                <Filter />
+                <Header />
                 <ListedBuses />
+                <BusInfo />
               </Paper>
             </Grid>
             <Grid item xs={4}>
@@ -73,13 +66,10 @@ export default function Monitor() {
             {/* Bus info */}
             <Grid item xs={10}>
               <Paper className={classes.paper}>
-                <Info />
+                <StaffInfo />
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
       </main>
     </div>
