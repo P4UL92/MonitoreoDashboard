@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   info: {}
 }));
 
-export default function Monitor() {
+export default function TiemposControl() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
