@@ -16,6 +16,9 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from "@material-ui/pickers";
+import Grid from "@material-ui/core/Grid";
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
+  },
+  toggleContainer: {
+    margin: theme.spacing(2, 0)
   }
 }));
 
@@ -41,7 +47,22 @@ const top100Films = [
   { title: "12 Angry Men", year: 1957 }
 ];
 
-export default function Dsipatch() {
+export default function BusQuery() {
+  const [alignment, setAlignment] = React.useState("left");
+  const [formats, setFormats] = React.useState(() => ["phone"]);
+
+  const handleFormat = (event, newFormats) => {
+    if (newFormats.length) {
+      setFormats(newFormats);
+    }
+  };
+
+  const handleAlignment = (event, newAlignment) => {
+    if (newAlignment !== null) {
+      setAlignment(newAlignment);
+    }
+  };
+
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = React.useState(new Date());
 
@@ -107,17 +128,28 @@ export default function Dsipatch() {
               }}
             />
           </MuiPickersUtilsProvider>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+
+          <Grid item sm={12} md={6}>
+            <div className={classes.toggleContainer}>
+              <ToggleButtonGroup
+                value={alignment}
+                exclusive
+                onChange={handleAlignment}
+                aria-label="text alignment"
+              >
+                <ToggleButton value="left" aria-label="left aligned">
+                  Corto
+                </ToggleButton>
+                <ToggleButton value="center" aria-label="centered">
+                  Largo
+                </ToggleButton>
+                <ToggleButton value="right" aria-label="right aligned">
+                  Feriado
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
+          </Grid>
+
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
