@@ -2,8 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import FormControl from "@material-ui/core/FormControl";
@@ -21,6 +19,12 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch"
+    }
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -76,7 +80,7 @@ export default function BusQuery() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h6">
           Consultar vehículo
         </Typography>
         <form className={classes.form} noValidate>
@@ -131,6 +135,7 @@ export default function BusQuery() {
 
           <Grid item sm={12} md={6}>
             <div className={classes.toggleContainer}>
+              Formato de hora:
               <ToggleButtonGroup
                 value={alignment}
                 exclusive
@@ -150,10 +155,14 @@ export default function BusQuery() {
             </div>
           </Grid>
 
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              id="outlined-basic"
+              label="Punto de inicio"
+              variant="outlined"
+            />
+          </form>
+
           <Button
             type="submit"
             fullWidth
