@@ -1,71 +1,101 @@
 import React from "react";
-import Link from "@material-ui/core/Link";
+
 import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Title from "./Title";
-
-// Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
-}
-
-const rows = [
-  createData(
-    0,
-    "16 Mar, 2019",
-    "Elvis Presley",
-    "Tupelo, MS",
-    "VISA ⠀•••• 3719",
-    312.44
-  )
-];
-
-function preventDefault(event) {
-  event.preventDefault();
-}
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-  seeMore: {
-    marginTop: theme.spacing(3)
+  form: {
+    width: "100%" // Fix IE 11 issue.
+  },
+  paper: {
+    display: "flex"
+  },
+  boxbackground: {
+    backgroundColor: "#17a2b8",
+    color: "#ffffff",
+    "&:hover": {
+      backgroundColor: "#047085"
+    }
+  },
+  spacing: {
+    direction: "column",
+    alignItems: "center",
+    justify: "center",
+    padding: theme.spacing(1, 0, 0)
   }
 }));
-
-export default function Filter() {
+export default function Header() {
   const classes = useStyles();
   return (
-    <React.Fragment>
-      <Title>Información de bus</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
-        </Link>
+    <Container component="main" maxWidth="lg">
+      <div>
+        <Grid container>
+          {/* Mapeo */}
+          <Grid item xs={12} md={4} lg={3} className={classes.spacing}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              MONITOREO TIEMPO REAL
+            </Typography>
+          </Grid>
+          {/* Recent Deposits */}
+          <Grid className={classes.paper} item xs={12} md={8} lg={9}>
+            <Button color="primary">Filtrar</Button>
+            <Grid item spacing={3}>
+              <Button
+                className={classes.boxbackground}
+                variant="contained"
+                color="primary"
+              >
+                Flota:125
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                className={classes.boxbackground}
+                variant="contained"
+                color="primary"
+              >
+                AB:46
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                className={classes.boxbackground}
+                variant="contained"
+                color="primary"
+              >
+                BA
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                className={classes.boxbackground}
+                variant="contained"
+                color="primary"
+              >
+                TermA:05
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                className={classes.boxbackground}
+                variant="contained"
+                color="primary"
+              >
+                TermB:06
+              </Button>
+            </Grid>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Paraderos"
+            />
+          </Grid>
+        </Grid>
       </div>
-    </React.Fragment>
+    </Container>
   );
 }

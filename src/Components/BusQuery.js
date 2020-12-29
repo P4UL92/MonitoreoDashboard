@@ -17,6 +17,7 @@ import {
 import Grid from "@material-ui/core/Grid";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -168,8 +169,9 @@ export default function BusQuery() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            startIcon={<SearchIcon />}
           >
-            Enviar
+            Buscar
           </Button>
         </form>
       </div>
