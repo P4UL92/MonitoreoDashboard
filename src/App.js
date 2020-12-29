@@ -11,7 +11,7 @@ function App({ history = defaultHistory }) {
   return (
     <Router history={history}>
       <Route exact path="/tiempos-control" component={TiemposControl} />
-      <Route exact path="/monitor/:variable" component={Alternate} />
+      <Route exact path="/tiempos-control/:variable" component={Alternate} />
     </Router>
   );
 }

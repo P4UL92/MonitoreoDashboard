@@ -11,7 +11,7 @@ import ListedBuses from "./Components/ListedBuses";
 import Filter from "./Components/Filter";
 import BusInfo from "./Components/BusInfo";
 import StaffInfo from "./Components/StaffInfo";
-import Dispatch from "./Components/Dispatch";
+import BusQuery from "./Components/BusQuery";
 import Header from "./Components/Header";
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +58,7 @@ export default function TiemposControl() {
             </Grid>
             <Grid item xs={4}>
               <Paper className={classes.paper}>
-                <Dispatch />
+                <BusQuery />
               </Paper>
             </Grid>
           </Grid>
