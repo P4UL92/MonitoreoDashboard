@@ -21,8 +21,7 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      margin: theme.spacing(1),
-      width: "25ch"
+      width: "100%"
     }
   },
   paper: {
@@ -77,7 +76,7 @@ export default function BusQuery() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.paper}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h6">
