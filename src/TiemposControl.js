@@ -13,7 +13,8 @@ import Header from "./Components/Header";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex"
+    display: "flex",
+    backgroundColor: "#30a7b5"
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
