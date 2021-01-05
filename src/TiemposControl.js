@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
+    height: "100%",
     overflow: "auto"
   },
   container: {
@@ -39,8 +39,6 @@ export default function TiemposControl() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <CssBaseline />
-
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
